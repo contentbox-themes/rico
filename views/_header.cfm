@@ -82,7 +82,7 @@
 		<cfelse>
 			<!--- Title --->
 			<div style="background-image:url( #prc.page.getFeaturedImageURL()#)">
-				<div class="container">
+				<div class="container title-container">
 					<h1>#prc.page.getTitle()#</h1>
 					<div class="text-divider5">
 						#prc.page.getExcerpt()#

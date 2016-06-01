@@ -111,9 +111,13 @@ header .social a {
   text-align: center;
   padding: 40px 0; }
 
+header .title-container {
+  padding: 120px 0 50px;
+  text-align: center; }
+
 header h1 {
   color: #fff;
-  text-transform: uppercase; }
+  font-family: 'Kaushan Script', cursive; }
 
 h1 small {
   clear: both;
