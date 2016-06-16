@@ -1,4 +1,4 @@
 # Rico
 Rico theme for ContentBox
 
-![open theme preview](https://github.com/contentbox-themes/rico/blob/master/screenshot.png)
+<img src="https://raw.githubusercontent.com/contentbox-themes/rico/master/screenshot.png" class="img-responsive">
