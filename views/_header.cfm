@@ -79,13 +79,18 @@
 					#cb.widget( name='ContentStoreSlider',args={max=3,category=prc.sliderCategory} )#
 				</div>
 			</cfif>
-		<cfelse>
+		<cfelseif cb.isPageView() or cb.isEntryView()>
+			<cfif cb.isPageView()>
+				<cfset content = prc.page>
+			<cfelseif cb.isEntryView()>
+				<cfset content = prc.entry>
+			</cfif>
 			<!--- Title --->
-			<div style="background-image:url( #prc.page.getFeaturedImageURL()#)">
+			<div style="background-image:url( #content.getFeaturedImageURL()#)">
 				<div class="container title-container">
-					<h1>#prc.page.getTitle()#</h1>
+					<h1>#content.getTitle()#</h1>
 					<div class="text-divider5">
-						#prc.page.getExcerpt()#
+						#content.getExcerpt()#
 					</div>
 				</div>
 			</div>
