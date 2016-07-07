@@ -148,43 +148,9 @@ component{
 	}
 	
 	function cbadmin_postThemeSettingsSave(event, interceptData, buffer){
-		generatePageContentStackFields();
+		
 	}
 	
-	/**
-	* Generates the custom fields for the Page Content Stack Widget
-	*/
-	private function generatePageContentStackFields(){
-		var aFieldKeys = [ "bgColor", "alignment","vcenter" ];
-		var pageSectionCatName = settingService.getSetting("cb_theme_simplicity_sec2Category");
-		
-		// is there a category selected
-		if( pageSectionCatName != "none" ){
-			var oCategory = categoryService.findWhere( criteria={category=pageSectionCatName} );
-			var sPages = pageService.search( category=oCategory.getCategoryID() );
-			
-			for ( var page in sPages.pages ) {
-				var sfields = page.getCustomFieldsAsStruct();
-					
-				for ( var field in aFieldKeys ) {
-			
-					// if page does not have field	
-					if( !structKeyExists( sfields, field  ) ){
-							
-						// create field
-						transaction{
-							var newCustomField = EntityNew( 'cbCustomField' );
-							newCustomField.setKey( field );
-							newCustomField.setValue( "" );
-							newCustomField.setRelatedContent( page );
-								
-							EntitySave( entity=newCustomField );
-						}
-					}
-				}		
-			}
-		}
-	}
 	
 	private string function entryCategories() {
 		var categoryList = arraytoList( categoryService.getAllNames() );
