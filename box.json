@@ -1,8 +1,8 @@
 {
     "name":"ContentBox Theme - Rico",
-    "version":"1.1.0",
+    "version":"@build.version@+@build.number@",
     "slug":"cbtheme-rico",
-    "location" : "https://github.com/contentbox-themes/rico/archive/master.zip",
+    "location"  : "http://downloads.ortussolutions.com/ortussolutions/contentbox-themes/rico/@build.version@/rico-@build.version@.zip",
     "author":"Ortus Solutions",
     "homepage":"http://www.ortussolutions.com/products/contentbox",
     "documentation":"https://github.com/contentbox-themes/rico",
@@ -16,7 +16,6 @@
     "instructions":"",
     "changelog":"",
     "type":"contentbox-themes",
-    "projectURL":"",
     "license":[
         {
             "type":"Apache2",
@@ -37,6 +36,7 @@
     },
     "ignore":[
         "**/.*",
+        "build.xml",
         "tests"
     ]
 }
