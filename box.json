@@ -4,7 +4,7 @@
     "slug":"cbtheme-rico",
     "location"  : "http://downloads.ortussolutions.com/ortussolutions/contentbox-themes/rico/@build.version@/rico-@build.version@.zip",
     "author":"Ortus Solutions",
-    "homepage":"http://www.ortussolutions.com/products/contentbox",
+    "homepage":"https://www.ortussolutions.com/products/contentbox",
     "documentation":"https://github.com/contentbox-themes/rico",
     "repository":{
         "type":"git",

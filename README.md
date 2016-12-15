@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/contentbox-themes/rico.svg?branch=development)](https://travis-ci.org/contentbox-themes/rico)
+
 # Rico
 Rico theme for ContentBox
 
