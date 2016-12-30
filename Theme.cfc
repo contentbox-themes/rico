@@ -86,9 +86,9 @@ component{
 			{ name="cbBootswatchTheme", 	group="Colors", 	defaultValue="corporate", 	type="select", 	label="ContentBox Color Palette:", 	required="false", optionsUDF="getSwatches", groupIntro="Control the color scheme of your entire site by changing the color palette.", fieldHelp="#loadHelpFile( 'cbBootswatchTheme.html' )#"  },
 			
 			{ name="headerLogo", 			group="Header", 	defaultValue="", 			type="text", 	label="Logo URL:", groupIntro="Customize the header section of your theme.", 	fieldDescription="Enter a relative or full url for the website logo. Recommended dimensions: 300x50."  },
-			{ name="headerMainNav", 		group="Header", 	defaultValue="none", 		type="select", 	label="Main Navigation:", options="none,#menus()#", fieldDescription="Select a menu for the Main Navigation."},
+			{ name="headerMainNav", 		group="Header", 	defaultValue="none", 		type="select", 	label="Main Navigation:", optionsUDF="menus", fieldDescription="Select a menu for the Main Navigation."},
 		
-			{ name="sliderCategory", 		group="Slideshow", 	defaultValue="none", 		type="select", 	label="Content Category:", options="none,#entryCategories()#", groupIntro="Customize the slider that appears in the homepage.", fieldDescription="Select the content store category.", fieldHelp="#loadHelpFile( 'contentStoreSlider.html' )#" },
+			{ name="sliderCategory", 		group="Slideshow", 	defaultValue="none", 		type="select", 	label="Content Category:", optionsUDF="entryCategories", groupIntro="Customize the slider that appears in the homepage.", fieldDescription="Select the content store category.", fieldHelp="#loadHelpFile( 'contentStoreSlider.html' )#" },
 			
 			{ name="hpArticleTitle", 		group="Homepage Article", 	defaultValue="", 		type="text", 		label="Homepage Article Title:", groupIntro="Add an article to the section below slider in homepage." },
 			{ name="hpArticleText",			group="Homepage Article", 	defaultValue="", 		type="textarea", 	label="Homepage Article Text:" },
@@ -100,9 +100,9 @@ component{
 			{ name="secQuoteImgBg", 		group="Quote", 	defaultValue="", 		type="text", 		label="Quote Image Background:" },
 			
 			{ name="entriesTitle", 			group="Blog Entries", defaultValue="", 		type="text", 	label="Blog Entries Title:", groupIntro="Add blog feed to homepage." },
-			{ name="entriesCategory",   	group="Blog Entries", defaultValue="none", 	type="select", 	label="Blog Entries Category:", options="none,#entryCategories()#" },
+			{ name="entriesCategory",   	group="Blog Entries", defaultValue="none", 	type="select", 	label="Blog Entries Category:", optionsUDF="entryCategories" },
 			
-			{ name="csCategory", 			group="Content Store Entries", defaultValue="none", type="select", 		label="Content Store Category:", options="none,#entryCategories()#", groupIntro="Feature a Content Store category.", fieldDescription="Select the content store category.", fieldHelp="#loadHelpFile( 'contentStoreGrid.html' )#" },
+			{ name="csCategory", 			group="Content Store Entries", defaultValue="none", type="select", 		label="Content Store Category:", optionsUDF="entryCategories", groupIntro="Feature a Content Store category.", fieldDescription="Select the content store category.", fieldHelp="#loadHelpFile( 'contentStoreGrid.html' )#" },
 			{ name="csBtnText", 			group="Content Store Entries", defaultValue="", 		type="text", 	label="Content Store Button Title:" },
 			{ name="csBtnURL", 				group="Content Store Entries", defaultValue="", 		type="text", 	label="Content Store Button URL:" },
 				
@@ -176,15 +176,22 @@ component{
 	function cbadmin_postThemeSettingsSave(event, interceptData, buffer){
 		
 	}
-	
-	
-	private string function entryCategories() {
+		
+	/**
+	* Gets names of categories
+	*/
+	string function entryCategories() {
 		var categoryList = arraytoList( categoryService.getAllNames() );
+		categoryList = ListPrepend( categoryList, "none" );
 		return categoryList;
 	}
 	
-	private string function menus() { 
+	/**
+	* Gets all menu slugs
+	*/
+	string function menus() { 
 		var menuList = arraytoList( menuService.getAllSlugs() );
+		menuList = ListPrepend( menuList, "none" );
 		return menuList;
 	}
 }
